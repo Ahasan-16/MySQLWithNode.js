@@ -15,5 +15,18 @@ con.connect(function(error){
     else
     {
         console.log("connection succeeded");
+        insertData(con);
     }
 })
+function insertData(con){
+    sqlCommand="INSERT INTO `students`( `Name`, `Class`, `Phone`, `City`) VALUES ('Mohammad Ahasan','bsc','01752537287','Chattogram')"
+    con.query(sqlCommand,function(error){
+        if(error){
+            console.log("data insert failed");
+        }
+        else
+        {
+            console.log("data inserted");
+        }
+    })
+}
