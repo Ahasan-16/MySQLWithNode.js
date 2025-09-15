@@ -15,19 +15,19 @@ con.connect(function(error){
     else
     {
         console.log("connection succeeded");
-        deleteData(con);
+        updateData(con);
     }
 })
-function deleteData(con){
-    //column er name likte backtic er bitor ``
-    sqlCommand="DELETE FROM `students` WHERE `Id`=3"
+function updateData(con){
+
+    sqlCommand="UPDATE `students` SET `Name`='mohammadAhasan',`Phone`='0175253000',`City`='Sylhet' WHERE `Id`=4"
     con.query(sqlCommand,function(error){
         if(error){
-            console.log("data delete failed");
+            console.log("data update failed");
         }
         else
         {
-            console.log("data deleted");
+            console.log("data updated successfully");
         }
     })
 }
