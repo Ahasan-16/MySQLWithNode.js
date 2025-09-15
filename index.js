@@ -15,18 +15,19 @@ con.connect(function(error){
     else
     {
         console.log("connection succeeded");
-        insertData(con);
+        deleteData(con);
     }
 })
-function insertData(con){
-    sqlCommand="INSERT INTO `students`( `Name`, `Class`, `Phone`, `City`) VALUES ('Mohammad Ahasan','bsc','01752537287','Chattogram')"
+function deleteData(con){
+    //column er name likte backtic er bitor ``
+    sqlCommand="DELETE FROM `students` WHERE `Id`=3"
     con.query(sqlCommand,function(error){
         if(error){
-            console.log("data insert failed");
+            console.log("data delete failed");
         }
         else
         {
-            console.log("data inserted");
+            console.log("data deleted");
         }
     })
 }
