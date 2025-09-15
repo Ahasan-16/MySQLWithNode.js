@@ -15,19 +15,20 @@ con.connect(function(error){
     else
     {
         console.log("connection succeeded");
-        updateData(con);
+        selectData(con);
     }
 })
-function updateData(con){
+function selectData(con){
 
-    sqlCommand="UPDATE `students` SET `Name`='mohammadAhasan',`Phone`='0175253000',`City`='Sylhet' WHERE `Id`=4"
-    con.query(sqlCommand,function(error){
+    sqlCommand="SELECT * FROM `students`"
+    con.query(sqlCommand,function(error,result){
         if(error){
-            console.log("data update failed");
+            console.log("data select failed");
         }
         else
         {
-            console.log("data updated successfully");
+            console.log("data select successfully");
+            console.log(result);
         }
     })
 }
